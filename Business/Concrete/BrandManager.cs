@@ -19,7 +19,7 @@ namespace Business.Concrete
 
         public IResult Add(Brand brand)
         {
-            if (brand.BrandName.Length < 2)
+            if (brand.BrandName.Length <= 2)
             {
                 return new ErrorResult(Messages.ColorNameError);
             }

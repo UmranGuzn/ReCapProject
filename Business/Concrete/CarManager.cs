@@ -21,7 +21,7 @@ namespace Business.Concrete
         public IResult Add(Car car)
         {
             //business Codes
-            if (car.DailyPrice > 0)
+            if (car.DailyPrice <= 0)
             {
                 return new ErrorResult(Messages.DailyPriceError);
             }
@@ -43,7 +43,7 @@ namespace Business.Concrete
             //iş kodları
             //yetkisi var mı?
             //gerekli koşulları yerine getiriyor mu?
-            if (DateTime.Now.Hour == 22)
+            if (DateTime.Now.Hour == 24)
             {
                 return new ErrorDataResult<List<Car>>(Messages.MaintenanceTime);
             }
