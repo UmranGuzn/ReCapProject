@@ -19,6 +19,7 @@ Araba Kiralama Sistemi | Kodlama.io
 &nbsp;&nbsp;&nbsp;&nbsp;📂 ``DTOs`` <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;📃 [CarDetailDto.cs](https://github.com/UmranGuzn/ReCapProject/blob/master/Entities/DTOs/CarDetailDto.cs) <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;📃 [RentalDetailDto.cs](https://github.com/UmranGuzn/ReCapProject/blob/master/Entities/DTOs/RentalDetailDto.cs) <br><br>
+
 **``DataAccess``**<br>
 &nbsp;&nbsp;&nbsp;&nbsp;📂 ``Abstract`` <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;📃 [IBrandDal.cs](https://github.com/UmranGuzn/ReCapProject/blob/master/DataAccess/Abstract/IBrandDal.cs) <br>
@@ -34,6 +35,7 @@ Araba Kiralama Sistemi | Kodlama.io
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;📃 [EfCustomerDal.cs](https://github.com/UmranGuzn/ReCapProject/blob/master/DataAccess/Concrete/EntityFramework/EfCustomerDal.cs) <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;📃 [EfRentalDal.cs](https://github.com/UmranGuzn/ReCapProject/blob/master/DataAccess/Concrete/EntityFramework/EfRentalDal.cs) <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;📃 [EfUserDal.cs](https://github.com/UmranGuzn/ReCapProject/blob/master/DataAccess/Concrete/EntityFramework/EfUserDal.cs) <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;📃 [ReCapProjectContext.cs](https://github.com/UmranGuzn/ReCapProject/blob/master/DataAccess/Concrete/EntityFramework/ReCapProjectContext.cs) <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;📂 ``InMemory`` <br> 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;📃 [InMemoryCarDal.cs](https://github.com/UmranGuzn/ReCapProject/blob/master/DataAccess/Concrete/InMemory/InMemoryCarDal.cs) <br><br>
 
@@ -54,9 +56,22 @@ Araba Kiralama Sistemi | Kodlama.io
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;📃 [UserManager.cs](https://github.com/UmranGuzn/ReCapProject/blob/master/Business/Concrete/UserManager.cs) <br>
 &nbsp;&nbsp;&nbsp;&nbsp;📂 ``Constants`` <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;📃 [Messages.cs](https://github.com/UmranGuzn/ReCapProject/blob/master/Business/Constants/Messages.cs) <br>
+&nbsp;&nbsp;&nbsp;&nbsp;📂 ``DependencyResolvers`` <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;📂 ``Autofac`` <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;📃 [AutofacBusinessModule.cs](https://github.com/UmranGuzn/ReCapProject/blob/master/Business/DependencyResolvers/Autofac/AutofacBusinessModule.cs) <br>
+&nbsp;&nbsp;&nbsp;&nbsp;📂 ``ValidaitonRules`` <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;📂 ``FluentValidaiton`` <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;📃 [CarValidator.cs](https://github.com/UmranGuzn/ReCapProject/blob/master/Business/ValidaitonRules/FluentValidaiton/CarValidator.cs) <br>
 <br>
 
 **``Core``**<br>
+&nbsp;&nbsp;&nbsp;&nbsp;📂 ``Aspect`` <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;📂 ``Autofac`` <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;📂 ``Validation`` <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;📃 [ValidaitonAspect.cs](https://github.com/UmranGuzn/ReCapProject/blob/master/Core/Aspect/Autofac/Validation/ValidaitonAspect.cs) <br>
+&nbsp;&nbsp;&nbsp;&nbsp;📂 ``CrossCuttingConcerns`` <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;📂 ``Validation`` <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;📃 [ValidationTool.cs](https://github.com/UmranGuzn/ReCapProject/blob/master/Core/DataAccess/CrossCuttingConcerns/Validation/ValidationTool.cs) <br>
 &nbsp;&nbsp;&nbsp;&nbsp;📂 ``DataAccess`` <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;📂 ``EntityFramework`` <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;📃 [EfEntityRepositoryBase.cs](https://github.com/UmranGuzn/ReCapProject/blob/master/Core/DataAccess/EntityFramework/EfEntityRepositoryBase.cs) <br>
@@ -65,6 +80,10 @@ Araba Kiralama Sistemi | Kodlama.io
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;📃 [IDto.cs](https://github.com/UmranGuzn/ReCapProject/blob/master/Core/Entities/IDto.cs) <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;📃 [IEntity.cs](https://github.com/UmranGuzn/ReCapProject/blob/master/Core/Entities/IEntity.cs) <br>
 &nbsp;&nbsp;&nbsp;&nbsp;📂 ``Utilities`` <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;📂 ``Interceptors`` <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;📃 [AspectInterceptorSelector.cs](https://github.com/UmranGuzn/ReCapProject/blob/master/Core/Utilities/Interceptors/AspectInterceptorSelector.cs) <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;📃 [MethodInterception.cs](https://github.com/UmranGuzn/ReCapProject/blob/master/Core/Utilities/Interceptors/MethodInterception.cs) <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;📃 [MethodInterceptionBaseAttribute.cs](https://github.com/UmranGuzn/ReCapProject/blob/master/Core/Utilities/Interceptors/MethodInterceptionBaseAttribute.cs) <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;📂 ``Result`` <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;📃 [DataResult.cs](https://github.com/UmranGuzn/ReCapProject/blob/master/Core/Utilities/Results/DataResult.cs) <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;📃 [ErrorDataResult.cs](https://github.com/UmranGuzn/ReCapProject/blob/master/Core/Utilities/Results/ErrorDataResult.cs) <br>
