@@ -10,12 +10,12 @@ namespace ConsoleUI
         static void Main(string[] args)
         {
 
-            CarManager carManager = new CarManager(new EfCarDal());
-            BrandManager brandManager = new BrandManager(new EfBrandDal());
-            ColorManager colorManager = new ColorManager(new EfColorDal());
-            CustomerManager customerManager = new CustomerManager(new EfCustomerDal());
-            UserManager userManager = new UserManager(new EfUserDal());
-            RentalManager rentalManager = new RentalManager(new EfRentalDal());
+            //CarManager carManager = new CarManager(new EfCarDal());
+            //BrandManager brandManager = new BrandManager(new EfBrandDal());
+            //ColorManager colorManager = new ColorManager(new EfColorDal());
+            //CustomerManager customerManager = new CustomerManager(new EfCustomerDal());
+            //UserManager userManager = new UserManager(new EfUserDal());
+            //RentalManager rentalManager = new RentalManager(new EfRentalDal());
 
             // bool exit = true;
 
@@ -29,10 +29,10 @@ namespace ConsoleUI
             //         "11. Add Customer\n12. Listed Customer\n13. Add User\n14. Listed User\n" +
             //         "15. Araba Kiralama\n16. Araba Teslim Etme\n17. Araba Kiralama Listesi\n18. Exit");
             //}
-            foreach (var item in carManager.GetAll().Data)
-            {
-                Console.WriteLine(item.Descriptions);
-            }
+            //foreach (var item in carManager.GetAll().Data)
+            //{
+            //    Console.WriteLine(item.Descriptions);
+            //}
 
 
         }

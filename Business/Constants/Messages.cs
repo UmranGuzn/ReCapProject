@@ -30,10 +30,11 @@ namespace Business.Constants
         public static string BrandDeleted = "Brand Added";
         public static string BrandUpdated = "Brand Updated";
 
-        //User
+        //User-success
         public static string UserAdded = "User Added";
         public static string UserDeleted = "User Deleted";
         public static string UserUpdated = "User Updated";
+        //User-Error
         public static string UserNameError = "User Name Must be greater than 2 letters";
         public static string UserLastError = "User LastName Must be greater than 2 letters";
 
@@ -47,5 +48,9 @@ namespace Business.Constants
         public static string RentalUpdated = "Rental Updated";
         public static string RentalDeleted = "Rental Deleted";
 
+
+        public static string BrandCountError = "aynı markadan en fazla on tane ekleyebilirsiniz.";
+
+        public static string ColorLimitExceded { get; internal set; }
     }
 }

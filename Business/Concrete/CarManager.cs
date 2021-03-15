@@ -1,8 +1,10 @@
 ﻿using Business.Abstract;
+using Business.CCS;
 using Business.Constants;
 using Business.ValidationRules.FluentValidation;
 using Core.Aspect.Autofac.Validation;
 using Core.CrossCuttingConcerns.Validation;
+using Core.Utilities.Business;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
@@ -17,19 +19,30 @@ namespace Business.Concrete
     public class CarManager : ICarService
     {
         ICarDal _carDal;
-        public CarManager(ICarDal carDal)
+        IColorService _colorService;
+      
+        public CarManager(ICarDal carDal,IColorService colorService)
         {
             _carDal = carDal;
+            _colorService = colorService;
+           
         }
 
         [ValidationAspect(typeof(CarValidator))]
         public IResult Add(Car car)
         {
-            //business Codes
+          IResult result=  BusinessRules.Run(ChechkIfCarCountOfBrandCorrect(car.BrandId), ChechkIfColorLimitExceded());
 
-             _carDal.Add(car);
-            
+            if (result!=null)
+            {
+                return result;
+            }
+          
+            _carDal.Add(car);
+
             return new SuccessResult(Messages.CarAdded);
+          
+      
         }
 
         public IResult Delete(Car car)
@@ -84,5 +97,32 @@ namespace Business.Concrete
             _carDal.Update(car);
             return new SuccessResult(Messages.CarUpdated);
         }
+
+
+        private IResult ChechkIfCarCountOfBrandCorrect(int brandId)
+        {
+            var result = _carDal.GetAll(p => p.BrandId == brandId).Count;
+
+            if (result >= 10)
+            {
+                return new ErrorResult(Messages.BrandCountError);
+            }
+
+            return new SuccessResult();
+        }
+
+        private IResult ChechkIfColorLimitExceded()
+        {
+            var result = _colorService.GetAll();
+
+            if (result.Data.Count > 15)
+            {
+                return new ErrorResult(Messages.ColorLimitExceded);
+            }
+
+            return new SuccessResult();
+        }
+
+
     }
 }
