@@ -52,6 +52,8 @@ namespace Business.Constants
         public static string BrandCountError = "aynı markadan en fazla on tane ekleyebilirsiniz.";
 
         public static string ColorLimitExceded { get; internal set; }
+        public static string CarImageAdded = "Resim eklendi";
+
         public static string ColorNameAlreadyExist = "Bu isimde Renk var";
 
         public static string BrandNameAlreadyExist = "Bu isimde marka var";
