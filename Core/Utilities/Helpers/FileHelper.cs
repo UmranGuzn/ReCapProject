@@ -12,7 +12,7 @@ namespace Core.Utilities.Helpers
         public static string Add(IFormFile file)
         {
             var sourcePath = Path.GetTempFileName();
-            if (file.Length > 0)
+            if (file!=null)
             {
                 using (var uploading=new FileStream(sourcePath, FileMode.Create))
                 {
@@ -20,16 +20,16 @@ namespace Core.Utilities.Helpers
                 }
             }
 
-            var result = newPath(file);
-            File.Move(sourcePath, result);
-            return result;
+            string filePath = FilePath(file);
+            File.Move(sourcePath, filePath);
+            return filePath;
         }
 
         public static string Update(string sourcePath,IFormFile formFile)
         {
-            var result = newPath(formFile);
+            string result = FilePath(formFile);
            
-                if (sourcePath.Length>0)
+                if (sourcePath.Length!=0)
                 {
                     using (var stream=new FileStream(result,FileMode.Create))
                     {
@@ -58,7 +58,7 @@ namespace Core.Utilities.Helpers
             return new SuccessResult();
         }
 
-        public static string newPath(IFormFile file)
+        public static string FilePath(IFormFile file)
         {
             FileInfo fI = new FileInfo(file.FileName);
 
