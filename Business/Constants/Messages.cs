@@ -31,14 +31,19 @@ namespace Business.Constants
         public static string BrandAdded = "Brand Added";
         public static string BrandDeleted = "Brand Added";
         public static string BrandUpdated = "Brand Updated";
+        public static string BrandCountError = "aynı markadan en fazla on tane ekleyebilirsiniz.";
+
 
         //User-success
         public static string UserAdded = "User Added";
         public static string UserDeleted = "User Deleted";
         public static string UserUpdated = "User Updated";
+        public static string UserRegistered = "Kayıt oluşturuldu.";
         //User-Error
         public static string UserNameError = "User Name Must be greater than 2 letters";
         public static string UserLastError = "User LastName Must be greater than 2 letters";
+        public static string UserAlreadyExists = "kullanıcı zaten mevcut";
+        public static string PasswordError = "Parola Hatası";
 
         //Customer
         public static string CustomerAdded = "Customer Added";
@@ -51,17 +56,19 @@ namespace Business.Constants
         public static string RentalDeleted = "Rental Deleted";
 
 
-        public static string BrandCountError = "aynı markadan en fazla on tane ekleyebilirsiniz.";
-
+       
         public static string ColorLimitExceded { get; internal set; }
         public static string AccessTokenCreated { get; internal set; }
 
-        public static string UserAlreadyExists = "kullanıcı zaten mevcut";
+        //CreditCard
+        public static string AddedCreditCard = "Credit Card Added";
+        public static string DeletedCreditCard = "Credit Card Deleted";
+        public static string UpdatedCreditCard = "Credit Card Updated";
 
-        public static string PasswordError = "Parola Hatası";
+        
         public static string SuccessfulLogin = "Başarılı Giriş";
 
-        public static string UserRegistered = "Kayıt oluşturuldu.";
+        
 
         public static string UserNotFound = "Kullanıcı bulunamadı";
 
