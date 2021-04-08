@@ -9,6 +9,8 @@ namespace Entities.DTOs
     {
         public int CarId { get; set; }
 
+        public int ColorId { get; set; }
+        public int BrandId { get; set; }
         public string ColorName { get; set; }
 
         public string BrandName { get; set; }
@@ -19,8 +21,8 @@ namespace Entities.DTOs
 
         public string ModelYear { get; set; }
 
-       // public string ImagePath { get; set; }
+        public string ImagePath { get; set; }
 
-       // public DateTime CarImageDate { get; set; }
+        public DateTime CarImageDate { get; set; }
     }
 }

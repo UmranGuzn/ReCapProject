@@ -90,9 +90,9 @@ namespace WebAPI.Controllers
         }
 
         [HttpGet("getcardetail")]
-        public IActionResult GetCarDetails()
+        public IActionResult GetCarDetails(int carId)
         {
-            var result = _carService.GetCarDetails();
+            var result = _carService.GetCarDetails(carId);
             if (result.Success)
             {
                 return Ok(result);
@@ -101,5 +101,18 @@ namespace WebAPI.Controllers
             return BadRequest(result);
 
         }
+
+        [HttpGet("getcarsbrandandcolor")]
+        public IActionResult GetCarsBrandAndColor(int brandId,int colorId)
+        {
+            Thread.Sleep(1000);
+            var result = _carService.GetCarsBrandAndColor(brandId, colorId);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
     }
 }
