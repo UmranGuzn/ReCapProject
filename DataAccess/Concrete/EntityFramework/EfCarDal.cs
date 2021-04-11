@@ -13,29 +13,30 @@ namespace DataAccess.Concrete.EntityFramework
 {
     public class EfCarDal : EfEntityRepositoryBase<Car, ReCapProjectContext>, ICarDal
     {
+       
         public List<CarDetailDto> GetCarDetails(Expression<Func<CarDetailDto, bool>> filter = null)
         {
             using (ReCapProjectContext context=new ReCapProjectContext())
             {
-                var result = from p in context.Cars
+                var result = from car in context.Cars
+
                              join c in context.Colors
-                             on p.ColorId equals c.ColorId
+                             on car.ColorId equals c.ColorId
+
                              join b in context.Brands
-                             on p.BrandId equals b.BrandId
-                             join i in context.CarImages
-                             on p.CarId equals i.CarId
+                             on car.BrandId equals b.BrandId
+
+                            
                              select new CarDetailDto 
                              { 
-                                 CarId = p.CarId, 
-                                 DailyPrice = p.DailyPrice, 
+                                 CarId = car.CarId, 
+                                 DailyPrice = car.DailyPrice, 
                                  ColorName = c.ColorName, 
-                                 Descriptions = p.Descriptions,
+                                 Descriptions = car.Descriptions,
                                  BrandName=b.BrandName,
-                                 ModelYear=p.ModelYear,
+                                 ModelYear=car.ModelYear,
                                  BrandId=b.BrandId,
-                                 ColorId=c.ColorId,
-                                 CarImageDate=i.CarImageDate,
-                                 ImagePath=i.ImagePath
+                                 ColorId=c.ColorId
                                  
                              };
 
@@ -54,6 +55,7 @@ namespace DataAccess.Concrete.EntityFramework
                              on car.BrandId equals brand.BrandId
                              select new CarDetailDto()
                              {
+                                 CarId=car.CarId,
                                  BrandId = brand.BrandId,
                                  ColorId = color.ColorId,
                                  BrandName = brand.BrandName,

@@ -24,5 +24,7 @@ namespace Entities.DTOs
         public string ImagePath { get; set; }
 
         public DateTime CarImageDate { get; set; }
+
+        public int FixedPoint { get; set; }
     }
 }

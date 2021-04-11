@@ -41,7 +41,7 @@ namespace Business.Concrete
 
         public IDataResult<List<CreditCard>> GetByUserId(int userId)
         {
-            return new SuccessDataResult<List<CreditCard>>(_creditCardDal.GetAll(c => c.UserId == userId));
+            return new SuccessDataResult<List<CreditCard>>(_creditCardDal.GetAll(c => c.CustomerId == userId));
         }
 
         public IResult Update(CreditCard creditCard)

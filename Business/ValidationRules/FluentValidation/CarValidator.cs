@@ -20,8 +20,6 @@ namespace Business.ValidationRules.FluentValidation
            
             RuleFor(p => p.DailyPrice).GreaterThan(0);
 
-            RuleFor(p => p.DailyPrice).GreaterThanOrEqualTo(50000).When(p => p.BrandId == 1);
-
             RuleFor(p => p.ModelYear).Must(StartWithTwo).WithMessage("Araçlar 2000 yılından önce olamaz");
         }
 

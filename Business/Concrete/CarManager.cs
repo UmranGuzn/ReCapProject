@@ -32,7 +32,7 @@ namespace Business.Concrete
            
         }
 
-        //[SecuredOperation("product.add,admin")]
+        [SecuredOperation("car.add,admin")]
         [ValidationAspect(typeof(CarValidator))]
         [CacheRemoveAspect("IProductService.Get")]
         public IResult Add(Car car)
@@ -60,6 +60,7 @@ namespace Business.Concrete
             return new SuccessResult(Messages.CarUpdated);
         }
 
+        [SecuredOperation("car.add,admin")]
         public IResult Delete(Car car)
         {
             _carDal.Delete(car);
@@ -67,20 +68,21 @@ namespace Business.Concrete
             return new SuccessResult(Messages.CarDeleted);
         }
 
-        [CacheAspect]
+        //[CacheAspect]
         public IDataResult<List<Car>> GetAll()
         {
             //iş kodları
             //yetkisi var mı?
             //gerekli koşulları yerine getiriyor mu?
-            if (DateTime.Now.Hour == 24)
-            {
-                return new ErrorDataResult<List<Car>>(Messages.MaintenanceTime);
-            }
+            //if (DateTime.Now.Hour == 24)
+            //{
+            //    return new ErrorDataResult<List<Car>>(Messages.MaintenanceTime);
+            //}
 
 
             return new SuccessDataResult<List<Car>>(_carDal.GetAll(),Messages.AllListed);
         }
+
 
         public IDataResult<List<Car>> GetAllByBrandId(int id)
         {
@@ -104,7 +106,15 @@ namespace Business.Concrete
             return new SuccessDataResult<Car>(_carDal.Get(p => p.CarId == carId));
         }
 
-        public IDataResult<CarDetailDto> GetCarDetails(int carId)
+
+
+        public IDataResult<List<CarDetailDto>> GetCarDetails()
+        {
+            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails());
+        }
+
+     
+        public IDataResult<CarDetailDto> GetDetail(int carId)
         {
             return new SuccessDataResult<CarDetailDto>(_carDal.GetCarDetails(carId));
         }
@@ -116,6 +126,7 @@ namespace Business.Concrete
             return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails(p => p.BrandId == brandId && p.ColorId == colorId));
         }
 
+        [SecuredOperation("car.add,admin")]
         [ValidationAspect(typeof(CarValidator))]
         [CacheRemoveAspect("IProductService.Get")]
         public IResult Update(Car car)
@@ -148,7 +159,6 @@ namespace Business.Concrete
 
             return new SuccessResult();
         }
-
 
     }
 }
